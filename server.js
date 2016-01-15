@@ -14,17 +14,27 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/message', function( request, response){
   if(request.body.message !== undefined){
-    console.log(request.body);
+
     var message = request.body.message;
-    var splitMessage = message.split(' ');
-    console.log(splitMessage);
+    var smallMessage = message.toLowerCase();
+    var newMessage = smallMessage.replace('selfie', 'self-portrait')
+                            .replace('yummers','delicious')
+                            .replace('outchea', 'are out here')
+                            .replace('bruh','wow')
+                            .replace('doge','pug')
+                            .replace('cilantro', 'soap')
+                            .replace('bae', 'loved one')
+                            .replace('swag', 'style')
+                            .replace('yolo', 'carpe diem');
+
+    console.log(newMessage);
 
 
 
 
 
 
-    response.json({'success': true});
+    response.json(newMessage);
     response.end();
 
   } else{
@@ -42,3 +52,33 @@ var server = app.listen(3000, function(){
 
   console.log('Example app listening at http://%s:%s', host ,port);
 });
+
+
+
+
+
+
+
+// splitMessage[i] !== '.' ||
+//          splitMessage[i] !== '#' ||
+//          splitMessage[i] !== '!' ||
+//          splitMessage[i] !== '?' ||
+//          splitMessage[i] !== '@' ||
+//          splitMessage[i] !== '$' ||
+//          splitMessage[i] !== '^' ||
+//          splitMessage[i] !== '&' ||
+//          splitMessage[i] !== '*' ||
+//          splitMessage[i] !== '(' ||
+//          splitMessage[i] !== ')' ||
+//          splitMessage[i] !== ',' ||
+//          splitMessage[i] !== '-' ||
+//          splitMessage[i] !== '_' ||
+//          splitMessage[i] !== '=' ||
+//          splitMessage[i] !== '+' ||
+//          splitMessage[i] !== '{' ||
+//          splitMessage[i] !== '}' ||
+//          splitMessage[i] !== '[' ||
+//          splitMessage[i] !== ']' ||
+//          splitMessage[i] !== '|' ||
+//          splitMessage[i] !== ':' ||
+//          splitMessage[i] !== '#' ||
