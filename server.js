@@ -17,15 +17,15 @@ app.post('/message', function( request, response){
 
     var message = request.body.message;
     var smallMessage = message.toLowerCase();
-    var newMessage = smallMessage.replace('selfie', 'self-portrait')
-                            .replace('yummers','delicious')
-                            .replace('outchea', 'are out here')
-                            .replace('bruh','wow')
-                            .replace('doge','pug')
-                            .replace('cilantro', 'soap')
-                            .replace('bae', 'loved one')
-                            .replace('swag', 'style')
-                            .replace('yolo', 'carpe diem');
+    var newMessage = smallMessage.replace(/selfie'/g, 'self-portrait')
+                            .replace(/yummers/g,'delicious')
+                            .replace(/outchea/g, 'are out here')
+                            .replace(/bruh/g,'wow')
+                            .replace(/doge/g,'pug')
+                            .replace(/cilantro/g, 'soap')
+                            .replace(/bae/g, 'loved one')
+                            .replace(/swag/g, 'style')
+                            .replace(/yolo/g, 'carpe diem');
 
     console.log(newMessage);
 
