@@ -27,14 +27,23 @@ app.post('/message', function( request, response){
                             .replace(/swag/g, 'style')
                             .replace(/yolo/g, 'carpe diem');
 
-    console.log(newMessage);
+    var splitMessage = newMessage.split('');
+    var array = [];
 
 
+    for(var i = 0 ; i < splitMessage.length ; i++){
+      if( i === 0){
+        array.push(splitMessage[0].toUpperCase());
+      } else {
+        array.push(splitMessage[i]);
+      }
+    }
+
+    var joinedArray = array.join("");
+    console.log(joinedArray);
 
 
-
-
-    response.json(newMessage);
+    response.json(joinedArray);
     response.end();
 
   } else{
